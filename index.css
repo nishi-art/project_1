@@ -1,0 +1,130 @@
+@charset "UTF-8";
+body {
+    font-size: 100%;
+}
+#main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 800px;
+    height: 500px;
+    background-color: #011f5c;
+}
+#grid-content {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    .background {
+        width: 180px;
+        height: 180px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .shape {
+            width: 150px;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .numberbox {
+                position: relative;
+                width: 150px;
+                height: 150px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .number {
+                    font-size: 70px;
+                    font-weight: bold;
+                }
+                .text-content {
+                    position: absolute;
+                    width: 150px;
+                    height: 150px;
+                    left: 0;
+                    top: 16px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 100;
+                    line-height: 0px;
+                    .color-text {
+                        font-size: 20px;
+                        font-weight: bold;
+                        text-shadow: 1px 1px 0 #000;
+                        color: red;
+                    }
+                    .shape-text {
+                        font-size: 20px;
+                        font-weight: bold;
+                        text-shadow: 1px 1px 0 #000;
+                        color: red;
+                    }
+
+                }
+            }
+        }
+    }
+}
+.btn {
+    width: 200px;
+    height: 100px;
+}
+.preparation {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 10px;
+    width: 800px;
+    height: 500px;
+    text-align: center;
+    background-color: black;
+    p {
+        font-size: 50px;
+        font-weight: bold;
+        color: white;
+    }
+    .ready {
+        translate: 0 450px;
+    }
+    .go {
+        translate: 0 450px;
+    }
+}
+.none {
+    display: none;
+}
+.ready-animate {
+    animation-duration: 3s;
+    animation-name: slideupReady;
+    animation-fill-mode: forwards;
+}
+.go-animate {
+    animation-duration: 2s;
+    animation-name: slideupGo;
+    animation-fill-mode: forwards;
+}
+@keyframes slideupReady {
+    from {
+        translate: 0 450px;
+    }
+    50% {
+        translate: 0 150px;
+    }
+    to {
+        translate: 0 -300px;
+    }
+}
+@keyframes slideupGo {
+    from {
+        translate: 0 450px;
+    }
+    75% {
+        translate: 0 450px;
+    }
+    to {
+        translate: 0 0;
+    }
+}
