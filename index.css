@@ -68,9 +68,19 @@ body {
         }
     }
 }
+.contentbox {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .btn {
     width: 200px;
     height: 100px;
+    position: relative;
+    z-index: 100;
 }
 .preparation {
     position: absolute;
@@ -93,6 +103,68 @@ body {
         translate: 0 450px;
     }
 }
+.result {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 10px;
+    width: 800px;
+    height: 500px;
+    text-align: center;
+    background-color: black;
+    p {
+        margin-top: 210px;
+        font-size: 50px;
+        font-weight: bold;
+        color: white;
+    }
+}
+.barBox {
+    position: absolute;
+    top: 360px;
+    width: 800px;
+    height: 5px;
+    margin-left: 0;
+    margin-right: 0;
+}
+.timeLimit {
+    background-color: #a9f4fc;
+    width: 100%;
+    height: 5px;
+}
+.query {
+    position: absolute;
+    top: 400px;
+    width: 800px;
+    text-align: center;
+    .question {
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+    }
+    .answer {
+        color: white;
+        font-size: 10px;
+        input {
+            margin-left: 10px;
+            color: white;
+            font-size: 16px;
+            background-color: rgba(0, 0, 0, 0);
+            border-bottom: 3px solid white;
+            border-top: none;
+            border-right: none;
+            border-left: none;
+            caret-color: white;
+        }
+        input:focus {
+            outline: none;
+        }
+        input::placeholder {
+            font-size: 10px;
+            text-align: center;
+        }
+    }
+}
 .none {
     display: none;
 }
@@ -104,6 +176,117 @@ body {
 .go-animate {
     animation-duration: 2s;
     animation-name: slideupGo;
+    animation-fill-mode: forwards;
+}
+.rule {
+    position: relative;
+    z-index: 100;
+    left: 100px;
+    width: 200px;
+    height: 50px;
+}
+.description {
+    background-color: #ff4a4a;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    translate: 0 -750px;
+    .gameFlow {
+        display: flex;
+        justify-content: center;
+        .flowContent {
+            text-align: center;
+            width: 400px;
+            height: 550px;
+            margin-top: 30px;
+            background-color: #ff7a4a;
+            border-radius: 20px;
+            .flowNumber {
+                margin-top: 3px;
+            }
+            .descriptionText {
+                margin-inline: auto;
+                width: 300px;
+                font-size: 13px;
+            }
+            .outline {
+                margin-inline: auto;
+                width: 300px;
+                height: 140px;
+                border: 1px solid #000;
+                border-radius: 20px;
+                .outlineText {
+                    margin-top: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    font-size: 10px;
+                    .label {
+                        display: inline-block;
+                        width: 150px;
+                        text-align: right;
+                    }
+                }
+            }
+            .flowImage {
+                margin-top: 0px;
+                width: 300px;
+            }
+        }
+        .flowContent p:first-child {
+            font-size: 25px;
+            height: 25px;
+        }
+        .closeBtn {
+            position: absolute;
+            top: 90%;
+            left: 0;
+            margin: 0 auto;
+            width: 50px;
+            height: 50px;
+            background-color: #ff7a4a;
+            .cross {
+                position: relative;
+                top: -2px;
+                left: -8px;
+                width: 50px;
+                height: 50px;
+            }
+            .cross::before,
+            .cross::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 50px;
+                height: 2px;
+                background-color: #000;
+            }
+            .cross::before {
+                transform: translate(-50%, -50%) rotate(45deg);
+            }
+            .cross::after {
+                transform: translate(-50%, -50%) rotate(-45deg);
+            }
+        }.closeBtn:hover {
+            opacity: 0.6;
+            cursor: pointer;
+        }
+    }
+    .gameFlow > :not(:first-child) {
+        margin-left: 100px;
+    }
+}
+.rule-slidedown {
+    animation-duration: 1s;
+    animation-name: slidedownRule;
+    animation-fill-mode: forwards;
+}
+.rule-slideup {
+    animation-duration: 1s;
+    animation-name: slideupRule;
     animation-fill-mode: forwards;
 }
 @keyframes slideupReady {
@@ -126,5 +309,21 @@ body {
     }
     to {
         translate: 0 0;
+    }
+}
+@keyframes slidedownRule {
+    from {
+        translate: 0 -750px;
+    }
+    to {
+        translate: 0 0;
+    }
+}
+@keyframes slideupRule {
+    from {
+        translate: 0 0;
+    }
+    to {
+        translate: 0 -750px;
     }
 }

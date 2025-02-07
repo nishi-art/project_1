@@ -6,13 +6,14 @@
         <meta name="discription" content="GTAのパレト銀行強盗のミニゲームです。">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="index.css">
-        <script src="index.js" defer></script> <!--モジュール化するとindex.jsのcurrentbackgroundなどが定義されていないというエラーになる-->
+        <script type="module" src="index.js"></script> <!--モジュール化するとindex.jsのcurrentbackgroundなどが定義されていないというエラーになる-->
     </head>
     <body>
         <main>
             <div id="main-content">
                 <div id="grid-content">
                     <div class="background content">
+                        <div class="contentbox"></div>
                         <div class="shape content">
                             <div class="numberbox content">
                                 <p class="number"></p>
@@ -24,6 +25,7 @@
                         </div>
                     </div>
                     <div class="background content">
+                        <div class="contentbox"></div>
                         <div class="shape content">
                             <div class="numberbox content">
                                 <p class="number"></p>
@@ -35,6 +37,7 @@
                         </div>
                     </div>
                     <div class="background content">
+                        <div class="contentbox"></div>
                         <div class="shape content">
                             <div class="numberbox content">
                                 <p class="number"></p>
@@ -46,6 +49,7 @@
                         </div>
                     </div>
                     <div class="background content">
+                        <div class="contentbox"></div>
                         <div class="shape content">
                             <div class="numberbox content">
                                 <p class="number"></p>
@@ -62,8 +66,57 @@
                 <p class="ready none">Ready</p>
                 <p class="go">Go</p>
             </div>
-            <button class="btn" onclick="">start</button>
-            <p></p>
+            <div class="query">
+                <p class="question"></p>
+                <p class="answer"></p>
+            </div>
+            <div class="barBox">
+                <div class="bar"></div>
+            </div>
+            <button class="btn start">start</button>
+            <button class="btn reset">reset</button>
+            <div class="failureResult none result">
+                <p class="fail">Fail</p>
+            </div>
+            <div class="successResult none result">
+                <p class="success">Success</p>
+            </div>
+            <button class="rule">ルール</button>
+            <div class="description">
+                <div class="gameFlow">
+                    <div class="flowContent">
+                        <p class="flowNumber">①</p>
+                        <img class="flowImage" src="data/flow-1.png" alt="flow-1">
+                        <p class="descriptionText">1 2 3 4の数字がランダムな並びで表示されるのでそれを覚えます</p>
+                    </div>
+                    <div class="flowContent">
+                        <p class="flowNumber">②</p>
+                        <img class="flowImage" src="data/flow-2.png" alt="flow-2">
+                        <p class="descriptionText">
+                            問いと図が表示されるので下記にしたがって問いに対する答えをAnswerの部分に入力してください
+                            ※画像の例だと答えは（circle blue）となる
+                        </p>
+                        <div class="outline">
+                            <div class="outlineText">
+                                          <div><span class="label">background color</span> : <span class="value">一番後ろの色</span></div>
+                                    <div><span class="label">shape background color</span> : <span class="value">後ろから２番目の図の形の色</span></div>
+                                                     <div><span class="label">shape</span> : <span class="value">後ろから２番目の図の形</span></div>
+                                   <div><span class="label">number background color</span> : <span class="value">数字の色</span></div>
+                                                <div><span class="label">color text</span> : <span class="value">色のテキスト</span></div>
+                               <div><span class="label">color text background color</span> : <span class="value">色のテキストの色</span></div>
+                                                <div><span class="label">shape text</span> : <span class="value">形のテキスト</span></div>
+                               <div><span class="label">shape text background color</span> : <span class="value">形のテキストの色</span></div>
+                            </p>
+                        </div>
+                        <p class="descriptionText">②を２回正解するとクリアです</p>
+                    </div>
+                </div>
+                <button  class="closeBtn">
+                    <div">
+                        <div class="cross"></div>
+                    </div>
+                </button>
+            </div>
         </main>
     </body>
 </html>
