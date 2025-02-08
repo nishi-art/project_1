@@ -3,4 +3,4 @@
 
 # 動作環境
 Visual Studio Codeの拡張機能　又は
-pythonでローカルサーバを立ててブラウザで'localhost:8000'にアクセスして動作させています。
+pythonでローカルwebサーバを立ててブラウザで'localhost:8000'にアクセスして動作させています。
